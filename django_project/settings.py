@@ -38,6 +38,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'post.apps.PostConfig', # Paso 2: agregar la app post a la lista de aplicaciones instaladas
+    'movies.apps.MoviesConfig',
 ]
 
 MIDDLEWARE = [

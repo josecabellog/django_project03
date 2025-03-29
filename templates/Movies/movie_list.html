@@ -1,0 +1,63 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cineverse</title>
+    <link rel="stylesheet" href="{% static 'css/movie_list.css' %}">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Roboto+Condensed:wght@300;400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <header class="hero">
+        <div class="hero-content">
+            <h1>cineverse</h1>
+            <div class="search-bar">
+                <input type="text" placeholder="Buscar películas...">
+                <button><i class="fas fa-search"></i></button>
+            </div>
+        </div>
+    </header>
+
+    <div class="filters">
+        <button class="filter-btn active">Todas</button>
+        <button class="filter-btn">Acción</button>
+        <button class="filter-btn">Drama</button>
+        <button class="filter-btn">Comedia</button>
+        <button class="filter-btn">Ciencia Ficción</button>
+    </div>
+
+    <main class="container">
+        {% for movie in object_list %}
+        <div class="movie-card">
+            <div class="movie-poster">
+                <img src="{{ movie.imagen.url }}" alt="{{ movie.titulo }}">
+                <div class="movie-overlay">
+                    <button class="play-btn"><i class="fas fa-play"></i></button>
+                    <div class="movie-info">
+                        <span class="rating"><i class="fas fa-star"></i> 8.5</span>
+                        <span class="year">2023</span>
+                    </div>
+                </div>
+            </div>
+            <div class="movie-details">
+                <h2>{{ movie.titulo }}</h2>
+                <p class="genre">{{ movie.genero }}</p>
+                <div class="movie-actions">
+                    <button class="btn-watchlist"><i class="fas fa-plus"></i> Watchlist</button>
+                    <button class="btn-trailer" onclick="window.open('{{ movie.trailer }}', '_blank')">
+                        <i class="fas fa-play"></i> Trailer
+                    </button>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </main>
+
+    <footer class="site-footer">
+        <p>© 2023 Catálogo de Películas. Todos los derechos reservados.</p>
+    </footer>
+</body>
+</html>

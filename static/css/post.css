@@ -3,40 +3,32 @@ body {
     font-family: 'Arial', sans-serif;
     margin: 0;
     padding: 20px;
-    background-size: cover;
     color: #333;
 }
 
 h1 {
-    color: white; /* Titulo en blanco */
-    text-shadow: 2px 2px, 4px, 4px rgba(0, 0, 0, 0.2); 
+    color: white;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2); 
     margin-bottom: 20px;
-    border-bottom: 2px solid #ddd;
     padding-bottom: 10px;
-    text-align: center; /* Centrando el H1 */
-}
-
-h1:first-of-type {
-    font-size: 2.5em;
     text-align: center;
+    font-size: 2.5em;
 }
 
 .container {
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
+    gap: 20px;
 }
 
 .post {
-    background-color: white; /* Botones blancos */
+    background-color: white;
     padding: 20px;
-    margin: 20px; /* Margen para separar los botones */
     border-radius: 8px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
     transition: transform 0.3s ease;
-    display: inline-block; /* Alineación horizontal */
-    vertical-align: top; /* Asegura la alineación superior */
-    width: 300px; /* Ancho fijo para los botones (ajusta según necesites) */
+    width: 300px;
 }
 
 .post:hover {
@@ -44,11 +36,10 @@ h1:first-of-type {
     box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
 }
 
-.post h1 {
+.post h2 {
     font-size: 1.8em;
     color: #2c3e50;
     margin-bottom: 10px;
-    border-bottom: none;
     text-align: center;
 }
 
@@ -59,16 +50,9 @@ h1:first-of-type {
 }
 
 .post img {
-    max-width: 100%;
+    width: 100%;
     height: auto;
     margin-top: 15px;
     border-radius: 4px;
     display: block;
-    margin-left: auto;
-    margin-right: auto;
-}
-
-/* Centrar los botones */
-body > div {
-    text-align: center;
 }

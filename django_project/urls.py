@@ -22,7 +22,8 @@ from django.conf.urls.static import static
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', include('post.urls')) # Paso 3: incluir las urls de la app post en el archivo de urls del proyecto
+    path('post', include('post.urls')), # Paso 3: incluir las urls de la app post en el archivo de urls del proyecto
+    path('', include('movies.urls'))
 ]
 
-urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT) #esto es para que se puedan ver las imagenes en el nabegador
+urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT) #esto es para que se puedan ver las imagenes en el navegador

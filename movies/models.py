@@ -32,4 +32,4 @@ class Pelicula(models.Model):
 
 class MovieDetailView(DetailView):
     model = Pelicula
-    temaplate_name = 'movies/movie.detail.html'
+    template_name = 'movies/movie.detail.html'

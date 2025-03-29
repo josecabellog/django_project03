@@ -1,17 +1,94 @@
+{% load static %}
+
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>{{ pelicula.titulo }} | CineVerse</title>
+    <link rel="stylesheet" href="{% static 'css/movie_detail.css' %}">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Roboto+Condensed:wght@300;400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="icon" href="{% static 'img/favicon.ico' %}">
 </head>
 
 <body>
-    <img src="{{Pelicula.imagen}}" alt="">
-    <h1>{{Pelicula.titulo}}</h1>
-    <p>{{Pelicula.description}}</p>
-    <ul>
-        <li>{{object.ano_lanzamiento}}</li>
-    </ul>
+    <header class="movie-header">
+        <div class="container">
+            <a href="{% url 'movie_list' %}" class="back-button">
+                <i class="fas fa-arrow-left"></i> Volver al catálogo
+            </a>
+        </div>
+    </header>
+
+    <main class="movie-detail-container">
+        <div class="movie-poster-container">
+            <img src="{{ pelicula.imagen.url }}" alt="{{ pelicula.titulo }}" class="movie-poster">
+            <div class="movie-actions">
+                <button class="btn-watch-trailer" onclick="window.open('{{ pelicula.trailer }}', '_blank')">
+                    <i class="fas fa-play"></i> Ver trailer
+                </button>
+                <button class="btn-add-favorites">
+                    <i class="fas fa-heart"></i> Favoritos
+                </button>
+            </div>
+        </div>
+
+        <div class="movie-info">
+            <div class="movie-header-info">
+                <h1 class="movie-title">{{ pelicula.titulo }}</h1>
+                <div class="movie-meta">
+                    <span class="movie-year">{{ pelicula.ano_lanzamiento }}</span>
+                    <span class="movie-runtime">120 min</span>
+                    <span class="movie-rating"><i class="fas fa-star"></i> 8.5/10</span>
+                </div>
+                <div class="movie-genres">
+                    {% for genre in pelicula.genero.all %}
+                    <span class="genre-badge">{{ genre.nombre }}</span>
+                    {% endfor %}
+                </div>
+            </div>
+
+            <div class="movie-synopsis">
+                <h2>Sinopsis</h2>
+                <p>{{ pelicula.descripcion }}</p>
+            </div>
+
+            <div class="movie-details-grid">
+                <div class="detail-item">
+                    <h3>Director</h3>
+                    <p>Christopher Nolan</p>
+                </div>
+                <div class="detail-item">
+                    <h3>Reparto</h3>
+                    <p>Leonardo DiCaprio, Joseph Gordon-Levitt, Ellen Page</p>
+                </div>
+                <div class="detail-item">
+                    <h3>Premios</h3>
+                    <p>4 Oscars, including Best Cinematography</p>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <section class="similar-movies">
+        <div class="container">
+            <h2>Películas similares</h2>
+            <div class="similar-movies-grid">
+                <!-- You would loop through similar movies here -->
+                <div class="similar-movie-card">
+                    <img src="https://via.placeholder.com/200x300" alt="Similar Movie">
+                    <h3>Inception</h3>
+                </div>
+                <!-- More similar movies -->
+            </div>
+        </div>
+    </section>
+
+    <footer class="site-footer">
+        <div class="container">
+            <p>&copy; 2023 CineVerse. Todos los derechos reservados.</p>
+        </div>
+    </footer>
 </body>
 </html>

@@ -199,6 +199,11 @@ body {
     text-overflow: ellipsis;
 }
 
+.movie-details h2 a {
+    color: white;
+    text-decoration: none;
+}
+
 .genre {
     color: var(--text-secondary);
     font-size: 0.9rem;

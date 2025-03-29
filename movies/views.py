@@ -10,4 +10,4 @@ class MovieListView(ListView):
 
 class MovieDetailView(DetailView):
     model = Pelicula
-    template_name = 'Movies/movie.detail.html'
+    template_name = 'Movies/movie_detail.html'

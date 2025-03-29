@@ -43,7 +43,7 @@
                 </div>
             </div>
             <div class="movie-details">
-                <h2>{{ movie.titulo }}</h2>
+                <h2><a href="{% url 'movie_detail' movie.pk %}">{{ movie.titulo }}</a></h2>
                 <p class="genre">{{ movie.genero }}</p>
                 <div class="movie-actions">
                     <button class="btn-watchlist"><i class="fas fa-plus"></i> Watchlist</button>
